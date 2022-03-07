@@ -1,16 +1,33 @@
+import { useEffect, useState } from "react"
 import { useLocalStorage } from "usehooks-ts"
 
+const useTimeout = (time = 500) => {
+    const [timeoutReached, setTimoutReached] = useState(false)
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setTimoutReached(true)
+        }, time)
+
+        return () => {
+            clearTimeout(timeoutId)
+        }
+    })
+
+    return timeoutReached 
+}
+
 export const CookieBanner = () => {
+    const hasReachedTimeout = useTimeout()
     const [hasAcceptedCookies, acceptCookies] = useLocalStorage('acceptCookies', false)
     const onAccept = () => {
-        console.log('hello world')
         acceptCookies(true)
     }
     const onLeave = () => {
         window.history.back()
     }
 
-    if (hasAcceptedCookies) {
+    if (!hasReachedTimeout || hasAcceptedCookies) {
         return null
     }
 
