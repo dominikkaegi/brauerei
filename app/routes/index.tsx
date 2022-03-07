@@ -40,7 +40,7 @@ const Hero = () => {
           <h3 className="header-subheading">Kägi Bräu</h3>
         </div>
         <div className="container container-center">
-          <h1>Genussbiere aus der March</h1>
+          <h1>Genussbiere aus der Region</h1>
           <a href="#sellers" className="btn">Ich habe durst!</a>
         </div>
       </section>
