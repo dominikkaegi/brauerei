@@ -290,21 +290,26 @@ const Sellers = () => {
           </div>
         </div>
         <div className="seller-item">
+          <h3 className="seller-heading">Bistro OFFENbar</h3>
+          <div className="seller-address">
+            <p>Kantonstrasse 60</p>
+            <p>8864 Reichenburg</p>
+          </div>
+        </div>
+        <div className="seller-item">
           <h3 className="seller-heading">Siebner Fyrobig-Märt</h3>
           <div className="seller-address">
-            <p>Dorfschulhausplatz Siebnen</p>
+            <p>Dorfschulhausplatz, Siebnen</p>
             <p>Jeden Freitag 16.00-19.00h von April-Oktober</p>
           </div>
         </div>
         <div className="seller-item">
           <h3 className="seller-heading">Lachner Monats-Märt</h3>
           <div className="seller-address">
-            <p>1ster Samstag im Monat von April-Dezember</p>
+            <p>Seeplatz, Lachen</p>
+            <p>1ster Samstag im Monat 09:00-11:00 von April-Dezember</p>
           </div>
         </div>
-
-
-
       </div>
     </section>
   );
