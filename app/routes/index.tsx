@@ -236,7 +236,7 @@ const Sellers = () => {
       <h2 className="section-heading">Verkaufsstellen</h2>
 
       <div className="columns container sellers">
-        <div className="seller-item col-6">
+        <div className="seller-item">
           <h3 className="seller-heading">Brauerei Kägi Bräu</h3>
           <div className="seller-address">
             <p>Fabrikstrasse 26</p>
@@ -247,27 +247,64 @@ const Sellers = () => {
             </div>
           </div>
         </div>
-        <div className="seller-item col-6">
+        <div className="seller-item">
           <h3 className="seller-heading">Metzgerei Huber</h3>
           <div className="seller-address">
             <p>Bahnhofstrasse 4</p>
             <p>8854 Siebnen</p>
           </div>
         </div>
-        <div className="seller-item col-6">
+        <div className="seller-item">
           <h3 className="seller-heading">Früchtehof Diethelm</h3>
           <div className="seller-address">
             <p>Am Stutz 5</p>
             <p>8854 Siebnen</p>
           </div>
         </div>
-        <div className="seller-item col-6">
+        <div className="seller-item">
           <h3 className="seller-heading">Greenbird Natura</h3>
           <div className="seller-address">
             <p>Winkelweg 3</p>
             <p>8853 Lachen</p>
           </div>
         </div>
+        <div className="seller-item">
+          <h3 className="seller-heading">Restaurant Pereiras Schwyzerhüsli</h3>
+          <div className="seller-address">
+            <p>Kreuzstrasse 2</p>
+            <p>8854 Siebnen</p>
+          </div>
+        </div>
+        <div className="seller-item">
+          <h3 className="seller-heading">s’Gwächshuus</h3>
+          <div className="seller-address">
+            <p>Kanalweg 4</p>
+            <p>8714 Feldbach</p>
+          </div>
+        </div>
+        <div className="seller-item">
+          <h3 className="seller-heading">{`Abfüllbar & mehr unverpackt`}</h3>
+          <div className="seller-address">
+            <p>Dorfplatz 9a</p>
+            <p>8863 Buttikon</p>
+          </div>
+        </div>
+        <div className="seller-item">
+          <h3 className="seller-heading">Siebner Fyrobig-Märt</h3>
+          <div className="seller-address">
+            <p>Dorfschulhausplatz Siebnen</p>
+            <p>Jeden Freitag 16.00-19.00h von April-Oktober</p>
+          </div>
+        </div>
+        <div className="seller-item">
+          <h3 className="seller-heading">Lachner Monats-Märt</h3>
+          <div className="seller-address">
+            <p>1ster Samstag im Monat von April-Dezember</p>
+          </div>
+        </div>
+
+
+
       </div>
     </section>
   );

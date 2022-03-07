@@ -310,11 +310,23 @@ p {
 
 .sellers {
   padding: 4em 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px;
 }
 
 .seller-item {
   padding: 1em;
+  border: 2px solid #ffffff5c;
 }
+
+@media (min-width: 700px) {
+  .sellers {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
 
 /* Team */
 
