@@ -307,7 +307,7 @@ const Sellers = () => {
           <h3 className="seller-heading">Lachner Monats-Märt</h3>
           <div className="seller-address">
             <p>Seeplatz, Lachen</p>
-            <p>1ster Samstag im Monat 09:00-11:00 von April-Dezember</p>
+            <p>1ster Samstag im Monat 09:00-13:00 von April-Dezember</p>
           </div>
         </div>
       </div>
