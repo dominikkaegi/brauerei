@@ -36,3 +36,10 @@ Check out the [fly docs](https://fly.io/docs/getting-started/node/) for more inf
 Images are stored on the [Imagekit CDN](https://imagekit.io/dashboard)
 
 Username: kaegidominik@gmail.com 
+
+
+
+# Attribution
+
+
+<a href="https://icons8.com/icon/xQDoK3WxHJ8O/instagram">Instagram icon by Icons8</a> 

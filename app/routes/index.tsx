@@ -1,5 +1,8 @@
 
+import { Link } from "remix";
 import globalStyles from "~/styles/style.css";
+import {FacebookIcon} from '../components/FacebookIcon.tsx'
+import {InstagramIcon} from '../components/InstagramIcon.tsx'
 
 const imageBaseUrl = 'https://ik.imagekit.io/8ddkl3jbn2i/brauerei/';
 const generateImagePath = (imageName: string) => {
@@ -348,12 +351,16 @@ const Footer = () => {
             <ul className="footer-icon-list">
               <li className="footer-icon-list-item">
                 <a href="https://www.instagram.com/kaegibraeu/" target="_blank">
-                  <i className="icon instagram-icon"></i>
+                  <i className="icon">
+                    <InstagramIcon />
+                  </i>
                 </a>
               </li>
               <li className="footer-icon-list-item">
                 <a href="https://www.facebook.com/Kaegibraeu/" target="_blank">
-                  <i className="icon facebook-icon"></i>
+                  <i className="icon">
+                    <FacebookIcon />
+                  </i>
                 </a>
               </li>
             </ul>
@@ -361,10 +368,7 @@ const Footer = () => {
           <div className="footer-general">
             <ul>
               <li>
-                <a href="datenschutz.html">Datenschutz</a>
-              </li>
-              <li>
-                <a href="impressum.html">Impressum</a>
+                <Link to="/impressum">Impressum</Link>
               </li>
             </ul>
           </div>
