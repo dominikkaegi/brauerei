@@ -17,7 +17,7 @@ const Impressum = () => {
   return (
     <section>
       <div className="container py-2">
-        <h2>Impressum</h2>
+        <h3>Impressum</h3>
         <div>Kägi Bräu Gmbh</div>
         <div>Fabrikstrasse 26</div>
         <div>8854 Siebnen</div>
@@ -31,14 +31,14 @@ const DatenSchutz = () => {
   return (
     <section>
       <div className="container">
-        <h2>Datenschutzerklärung</h2>
+        <h3>Datenschutzerklärung</h3>
         <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO),
           ist:</p>
         <br />
         <p>Christoph Kägi<br />8854 Siebnen</p>
         <p>E-Mail: info@kaegibraeu.ch<br />WebSite: http://www.kägibräu.ch/ </p>
         <p>&nbsp;</p>
-        <h2>Allgemeiner Hinweis</h2>
+        <h3>Allgemeiner Hinweis</h3>
         <p>
           Gestützt auf Artikel 13 der schweizerischen Bundesverfassung und die datenschutzrechtlichen Bestimmungen des
           Bundes (Datenschutzgesetz, DSG) hat jede Person Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor Missbrauch ihrer
@@ -58,7 +58,7 @@ const DatenSchutz = () => {
           bezogen werden. Personenbezogene Daten, insbesondere Name, Adresse oder E-Mail-Adresse werden soweit möglich
           auf freiwilliger Basis erhoben. Ohne Ihre Einwilligung erfolgt keine Weitergabe der Daten an Dritte.</p>
         <p>&nbsp;</p>
-        <h2>Datenübertragungssicherheit (ohne SSL)</h2>
+        <h3>Datenübertragungs-sicherheit (ohne SSL)</h3>
         <p>Bitte beachten Sie, dass Daten, die über ein offenes Netz wie das Internet oder einen E-Mail-Dienst ohne
           SSL-Verschlüsselung übermittelt werden, für jedermann einsehbar sind. Eine unverschlüsselte
           Verbindung erkennen Sie daran, dass die Adresszeile des Browsers "http://" anzeigt und kein
@@ -87,20 +87,20 @@ const DatenSchutz = () => {
         <p>Daten welche Sie in Online-Formularen angeben, können zwecks Auftragsabwicklung an beauftragte Dritte
           weitergegeben und von diesen eingesehen und allenfalls bearbeitet werden.</p>
         <p>&nbsp;</p>
-        <h2>Datenschutzerklärung für Recht auf Auskunft, Löschung, Sperrung</h2>
+        <h3>Datenschutzerklärung für Recht auf Auskunft, Löschung, Sperrung</h3>
         <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten,
           deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung
           oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie
           sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.</p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
-        <h2>Änderungen</h2>
+        <h3>Änderungen</h3>
         <p>Wir können diese Datenschutzerklärung jederzeit ohne Vorankündigung anpassen. Es gilt die jeweils
           aktuelle, auf unserer Website publizierte Fassung. Soweit die Datenschutzerklärung Teil einer Vereinbarung
           mit Ihnen ist, werden wir Sie im Falle einer Aktualisierung über die Änderung per E-Mail oder auf andere
           geeignete Weise informieren.</p>
         <p>&nbsp;</p>
-        <h2>Fragen an den Datenschutzbeauftragten</h2>
+        <h3>Fragen an den Datenschutzbeauftragten</h3>
         <p>Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder wenden Sie sich direkt an die
           für den Datenschutz zu Beginn der Datenschutzerklärung aufgeführten, verantwortlichen Person in
           unserer Organisation.</p>
