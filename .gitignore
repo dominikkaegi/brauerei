@@ -1,0 +1,9 @@
+node_modules
+
+/build
+/.cache
+/server/build
+/public/build
+images
+.env
+old
