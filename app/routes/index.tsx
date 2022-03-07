@@ -1,8 +1,9 @@
 
 import { Link } from "remix";
+import { useLocalStorage } from "usehooks-ts";
 import globalStyles from "~/styles/style.css";
-import {FacebookIcon} from '../components/FacebookIcon.tsx'
-import {InstagramIcon} from '../components/InstagramIcon.tsx'
+import {FacebookIcon} from '../components/FacebookIcon'
+import {InstagramIcon} from '../components/InstagramIcon'
 
 const imageBaseUrl = 'https://ik.imagekit.io/8ddkl3jbn2i/brauerei/';
 const generateImagePath = (imageName: string) => {
@@ -17,6 +18,7 @@ export const links = () => {
 export default function Index() {
   return (
     <>
+      <CookieBanner />
       <Hero />
       <Products />
       <BrewSeminar />
@@ -376,4 +378,31 @@ const Footer = () => {
       </div>
     </footer>
   );
+}
+
+
+const CookieBanner = () => {
+  const [hasAcceptedCookies, acceptCookies] = useLocalStorage('acceptCookies', false)
+  const onAccept = () => {
+    console.log('hello world')
+    acceptCookies(true)
+  }
+  const onLeave = () => {
+    window.history.back()
+  }
+
+  if(hasAcceptedCookies) {
+    return null
+  }
+
+  return (
+    <div style={{position: 'fixed', bottom: '0', right: '0', left: '0', background: 'white', color: 'black', padding: '32px'}}>
+      <h4>Diese Website verwendet Cookies</h4>
+      <p>Wie benützen Cookies um die Performance der Seite zu verbesseren. Wir tracken keine User daten.</p>
+      <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+        <button className="btn btn-small" onClick={onLeave}>Seite verlassen</button>
+        <button className="btn btn-small" onClick={onAccept}>Cookies Akzeptieren</button>
+      </div>
+    </div>
+  )
 }

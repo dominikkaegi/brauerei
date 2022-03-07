@@ -113,6 +113,10 @@ p {
   font-size: 1.2rem;
 }
 
+.btn-small {
+  font-size: 0.8rem;
+}
+
 @media (min-width: 700px) {
   h1 {
     font-size: 4.5rem;
@@ -252,6 +256,13 @@ p {
   color: var(--text-white);
   text-transform: uppercase;
   border-radius: 5px;
+  border-color: transparent;
+}
+
+.btn-small {
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  margin: 5px;
 }
 
 /* header */

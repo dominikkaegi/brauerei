@@ -12,7 +12,6 @@ export const meta: MetaFunction = () => {
   return {
     title: 'Kägi Bräu',
     description: 'Bier aus der March.',
-    'og:image': 'https://ik.imagekit.io/8ddkl3jbn2i/brauerei/kaegi-logo.png',
   };
 };
 
