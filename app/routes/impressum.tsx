@@ -1,3 +1,4 @@
+import { CookieBanner } from "~/components/CookieBanner";
 import globalStyles from "~/styles/style.css";
 
 export const links = () => {
@@ -7,6 +8,7 @@ export const links = () => {
 export default function Index() {
   return (
     <>
+      <CookieBanner />
       <Impressum />
       <DatenSchutz />
     </>
