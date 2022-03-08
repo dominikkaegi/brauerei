@@ -1,5 +1,5 @@
 
-import { json,  LoaderFunction, useLoaderData, HeadersFunction } from "remix";
+import { json, LoaderFunction, useLoaderData, HeadersFunction } from "remix";
 import { getSellers, Seller } from "~/api/seller";
 import globalStyles from "~/styles/style.css";
 
@@ -10,8 +10,10 @@ const generateImagePath = (imageName: string) => {
 
 export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => {
   return {
-    "X-Stretchy-Pants": "You are looking at the request headers",
-    "Cache-Control": "max-age=60, stale-while-revalidate=31556926",
+    "X-Header-Creation": `${new Date()}`,
+    'X-Hello': 'From the other side',
+    // max-age: 12 hours, stale-while-revalidate: 1 year
+    "Cache-Control": "max-age=43200",
   };
 }
 
@@ -33,7 +35,7 @@ export const links = () => {
 };
 
 export default function Index() {
-  const sellers = useLoaderData <Seller[]>()
+  const sellers = useLoaderData<Seller[]>()
 
   return (
     <>
@@ -247,11 +249,11 @@ const BrewSeminar = () => {
   );
 }
 
-const SellerItem = ({seller}: {seller: Seller}) => {
+const SellerItem = ({ seller }: { seller: Seller }) => {
   return (
     <div className="seller-item">
       <h3 className="seller-heading">{seller.name}</h3>
-      <div className="seller-address" style={{ whiteSpace: 'pre-line'}}>
+      <div className="seller-address" style={{ whiteSpace: 'pre-line' }}>
         <p>
           {seller.description}
         </p>
@@ -261,7 +263,7 @@ const SellerItem = ({seller}: {seller: Seller}) => {
 
 }
 
-const Sellers = ({sellers}:{sellers: Seller[]}) => {  
+const Sellers = ({ sellers }: { sellers: Seller[] }) => {
   return (
     <section id="sellers">
       <h2 className="section-heading">Verkaufsstellen</h2>
