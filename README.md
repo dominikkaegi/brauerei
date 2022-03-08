@@ -38,6 +38,22 @@ Images are stored on the [Imagekit CDN](https://imagekit.io/dashboard)
 Username: kaegidominik@gmail.com 
 
 
+## CMS
+
+[GraphCMS](https://graphcms.com/) is used for the content management.
+
+*Content User*
+Username: info@kaegibraeu.ch
+Password: See password manager
+
+*Admin User*
+Username: kaegidominik+graphcms@gmail.com
+
+
+
+## Cloudflare
+
+[Cloudflare](https://dash.cloudflare.com/) for caching and general DNS configuration.
 
 # Attribution
 

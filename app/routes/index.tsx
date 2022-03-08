@@ -1,12 +1,18 @@
 
-import { useEffect } from "react";
-import { json, Link, LoaderFunction, useLoaderData } from "remix";
+import { json,  LoaderFunction, useLoaderData, HeadersFunction } from "remix";
 import { getSellers, Seller } from "~/api/seller";
 import globalStyles from "~/styles/style.css";
 
 const imageBaseUrl = 'https://ik.imagekit.io/8ddkl3jbn2i/brauerei/';
 const generateImagePath = (imageName: string) => {
   return `${imageBaseUrl}${imageName}`;
+}
+
+export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => {
+  return {
+    "X-Stretchy-Pants": "🍑🍑🍑 You are looking at the request headers",
+    "Cache-Control": "max-age=60, stale-while-revalidate=31556926",
+  };
 }
 
 export const loader: LoaderFunction = async () => {
