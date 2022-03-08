@@ -1,13 +1,24 @@
 
-import { Link } from "remix";
-import { CookieBanner } from "~/components/CookieBanner";
+import { useEffect } from "react";
+import { json, Link, LoaderFunction, useLoaderData } from "remix";
+import { getSellers, Seller } from "~/api/seller";
 import globalStyles from "~/styles/style.css";
-import {FacebookIcon} from '../components/FacebookIcon'
-import {InstagramIcon} from '../components/InstagramIcon'
 
 const imageBaseUrl = 'https://ik.imagekit.io/8ddkl3jbn2i/brauerei/';
 const generateImagePath = (imageName: string) => {
   return `${imageBaseUrl}${imageName}`;
+}
+
+export const loader: LoaderFunction = async () => {
+  let sellers: Seller[] = []
+
+  try {
+    sellers = await getSellers()
+  } catch (error) {
+    console.log(error)
+  }
+
+  return json(sellers)
 }
 
 
@@ -16,15 +27,15 @@ export const links = () => {
 };
 
 export default function Index() {
+  const sellers = useLoaderData <Seller[]>()
+
   return (
     <>
-      <CookieBanner />
       <Hero />
       <Products />
       <BrewSeminar />
-      <Sellers />
+      <Sellers sellers={sellers} />
       <Team />
-      <Footer />
     </>
   );
 }
@@ -230,86 +241,33 @@ const BrewSeminar = () => {
   );
 }
 
-const Sellers = () => {
+const SellerItem = ({seller}: {seller: Seller}) => {
+  return (
+    <div className="seller-item">
+      <h3 className="seller-heading">{seller.name}</h3>
+      <div className="seller-address" style={{ whiteSpace: 'pre-line'}}>
+        {seller.description}
+      </div>
+    </div>
+  )
+
+}
+
+const Sellers = ({sellers}:{sellers: Seller[]}) => {  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log({sellers})
+    }, 1000)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [sellers])
   return (
     <section id="sellers">
       <h2 className="section-heading">Verkaufsstellen</h2>
 
       <div className="columns container sellers">
-        <div className="seller-item">
-          <h3 className="seller-heading">Brauerei Kägi Bräu</h3>
-          <div className="seller-address">
-            <p>Fabrikstrasse 26</p>
-            <p>8854 Siebnen</p>
-            <div className="text-muted">
-              <p> info@kaegibraeu.ch </p>
-              <p> Tel. 079 357 47 89 </p>
-            </div>
-          </div>
-        </div>
-        <div className="seller-item">
-          <h3 className="seller-heading">Metzgerei Huber</h3>
-          <div className="seller-address">
-            <p>Bahnhofstrasse 4</p>
-            <p>8854 Siebnen</p>
-          </div>
-        </div>
-        <div className="seller-item">
-          <h3 className="seller-heading">Früchtehof Diethelm</h3>
-          <div className="seller-address">
-            <p>Am Stutz 5</p>
-            <p>8854 Siebnen</p>
-          </div>
-        </div>
-        <div className="seller-item">
-          <h3 className="seller-heading">Greenbird Natura</h3>
-          <div className="seller-address">
-            <p>Winkelweg 3</p>
-            <p>8853 Lachen</p>
-          </div>
-        </div>
-        <div className="seller-item">
-          <h3 className="seller-heading">Restaurant Pereiras Schwyzerhüsli</h3>
-          <div className="seller-address">
-            <p>Kreuzstrasse 2</p>
-            <p>8854 Siebnen</p>
-          </div>
-        </div>
-        <div className="seller-item">
-          <h3 className="seller-heading">s’Gwächshuus</h3>
-          <div className="seller-address">
-            <p>Kanalweg 4</p>
-            <p>8714 Feldbach</p>
-          </div>
-        </div>
-        <div className="seller-item">
-          <h3 className="seller-heading">{`Abfüllbar & mehr unverpackt`}</h3>
-          <div className="seller-address">
-            <p>Dorfplatz 9a</p>
-            <p>8863 Buttikon</p>
-          </div>
-        </div>
-        <div className="seller-item">
-          <h3 className="seller-heading">Bistro OFFENbar</h3>
-          <div className="seller-address">
-            <p>Kantonstrasse 60</p>
-            <p>8864 Reichenburg</p>
-          </div>
-        </div>
-        <div className="seller-item">
-          <h3 className="seller-heading">Siebner Fyrobig-Märt</h3>
-          <div className="seller-address">
-            <p>Dorfschulhausplatz, Siebnen</p>
-            <p>Jeden Freitag 16.00-19.00h von April-Oktober</p>
-          </div>
-        </div>
-        <div className="seller-item">
-          <h3 className="seller-heading">Lachner Monats-Märt</h3>
-          <div className="seller-address">
-            <p>Seeplatz, Lachen</p>
-            <p>1ster Samstag im Monat 09:00-13:00 von April-Dezember</p>
-          </div>
-        </div>
+        {sellers?.map(item => <SellerItem key={item.id} seller={item} />)}
       </div>
     </section>
   );
@@ -374,51 +332,6 @@ const Team = () => {
         </div>
       </div>
     </section>
-  );
-}
-
-
-const Footer = () => {
-  const date = new Date();
-  const fullYear = date.getFullYear();
-  const copyrightText = `Copyright © Kägi Bräu ${fullYear}`;
-
-
-  return (
-    <footer>
-      <div className="footer">
-        <div className="footer-alignment container">
-          <div>
-            <span className="copyright">{copyrightText}</span>
-          </div>
-          <div>
-            <ul className="footer-icon-list">
-              <li className="footer-icon-list-item">
-                <a href="https://www.instagram.com/kaegibraeu/" target="_blank">
-                  <i className="icon">
-                    <InstagramIcon />
-                  </i>
-                </a>
-              </li>
-              <li className="footer-icon-list-item">
-                <a href="https://www.facebook.com/Kaegibraeu/" target="_blank">
-                  <i className="icon">
-                    <FacebookIcon />
-                  </i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-general">
-            <ul>
-              <li>
-                <Link to="/impressum">Impressum</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
 

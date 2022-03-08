@@ -8,7 +8,6 @@ export const links = () => {
 export default function Index() {
   return (
     <>
-      <CookieBanner />
       <Impressum />
       <DatenSchutz />
     </>

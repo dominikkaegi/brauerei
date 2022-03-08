@@ -7,6 +7,8 @@ import {
   ScrollRestoration
 } from "remix";
 import type { MetaFunction } from "remix";
+import { CookieBanner } from "./components/CookieBanner";
+import { Footer } from "./components/Footer";
 
 export const meta: MetaFunction = () => {
   return {
@@ -26,7 +28,9 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <CookieBanner />
         <Outlet />
+        <Footer />
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
