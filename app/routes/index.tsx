@@ -254,14 +254,6 @@ const SellerItem = ({seller}: {seller: Seller}) => {
 }
 
 const Sellers = ({sellers}:{sellers: Seller[]}) => {  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log({sellers})
-    }, 1000)
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [sellers])
   return (
     <section id="sellers">
       <h2 className="section-heading">Verkaufsstellen</h2>
