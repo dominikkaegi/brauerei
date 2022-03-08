@@ -10,7 +10,7 @@ const generateImagePath = (imageName: string) => {
 
 export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => {
   return {
-    "X-Stretchy-Pants": "🍑🍑🍑 You are looking at the request headers",
+    "X-Stretchy-Pants": "You are looking at the request headers",
     "Cache-Control": "max-age=60, stale-while-revalidate=31556926",
   };
 }
