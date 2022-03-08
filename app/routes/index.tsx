@@ -246,7 +246,9 @@ const SellerItem = ({seller}: {seller: Seller}) => {
     <div className="seller-item">
       <h3 className="seller-heading">{seller.name}</h3>
       <div className="seller-address" style={{ whiteSpace: 'pre-line'}}>
-        {seller.description}
+        <p>
+          {seller.description}
+        </p>
       </div>
     </div>
   )
