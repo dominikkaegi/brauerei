@@ -21,6 +21,11 @@ export const getSellers = async () => {
   const graphClientUrl = process.env.GRAPH_CMS_CLIENT_URL as string
   const GRAPH_CMS_TOKEN = process.env.GRAPH_CMS_TOKEN as string
 
+
+  if(typeof graphClientUrl === 'undefined'  && typeof GRAPH_CMS_TOKEN === 'undefined') {
+    throw new Error('Missing CMS Process Variables')
+  }
+
     const graphcms = new GraphQLClient(graphClientUrl, {
         headers: {
         authorization: `Bearer ${GRAPH_CMS_TOKEN}`,

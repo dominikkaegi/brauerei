@@ -1,5 +1,4 @@
-import { CookieBanner } from "~/components/CookieBanner";
-import globalStyles from "~/styles/style.css";
+import globalStyles from "~/styles/global.css";
 
 export const links = () => {
   return [{ rel: "stylesheet", href: globalStyles }];

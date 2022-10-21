@@ -1,9 +1,6 @@
 node_modules
 
-/build
 /.cache
-/server/build
+/build
 /public/build
-images
 .env
-old

@@ -216,8 +216,7 @@ p {
 .header-image {
   background: var(--color-bg);
   background-image: 
-    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1)),
-    url("../imgs/header-img.jpg");
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1));
   height: 100vh;
   display: block;
   background-size: cover;
@@ -405,7 +404,6 @@ p {
 }
 
 /* Footer */
-
 footer {
   background: var(--text-white);
   color: var(--color-bg);
@@ -441,13 +439,13 @@ footer {
 }
 
 .facebook-icon {
-  background: url(../icons/facebook-f.svg) no-repeat;
+  background: no-repeat;
   background-size: contain;
   display: block;
 }
 
 .instagram-icon {
-  background: url(../icons/instagram.svg) no-repeat;
+  background:  no-repeat;
   background-size: contain;
   display: block;
 }
