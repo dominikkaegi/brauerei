@@ -2,8 +2,8 @@
 import type { HeadersFunction, LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import type { Seller } from "~/api/server.seller";
-import { getSellers } from "~/api/server.seller";
+import type { Seller } from "~/api/seller-api";
+import { getSellers } from "~/api/seller-api";
 import globalStyles from "~/styles/global.css";
 
 const imageBaseUrl = 'https://ik.imagekit.io/8ddkl3jbn2i/brauerei/';
