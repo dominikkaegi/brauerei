@@ -6,9 +6,13 @@ name: App Deployment
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: 
+      - main
+      - deploy-test
   pull_request:
-    branches: [ main ]
+    branches:
+      - main 
+      - deploy-test
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,16 +20,13 @@ on:
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
   
-  
-  
 jobs:
   deploy:
       name: Deploy app
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-        - uses: superfly/flyctl-actions@1.1
-          with:
-            args: "deploy"
+        - uses: superfly/flyctl-actions/setup-flyctl@master
+        - run: flyctl deploy --remote-only
 
 
