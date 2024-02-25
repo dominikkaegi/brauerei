@@ -1,11 +1,11 @@
 import { GraphQLClient, gql } from "graphql-request";
 
 const GetSellersQuery = gql`
-query GetSellers {
+query Assets {
   sellers {
-    name
-    description
     id
+    name
+    publishedAt
   }
 }
 `;
