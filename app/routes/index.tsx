@@ -1,41 +1,43 @@
-
 import { json, LoaderFunction, useLoaderData, HeadersFunction } from "remix";
 import { getSellers, Seller } from "~/api/seller";
 import globalStyles from "~/styles/style.css";
+import "dotenv/config";
+import { defaultSellers } from "~/components/defaultData";
 
-const imageBaseUrl = 'https://ik.imagekit.io/8ddkl3jbn2i/brauerei/';
+const imageBaseUrl = "https://ik.imagekit.io/8ddkl3jbn2i/brauerei/";
 const generateImagePath = (imageName: string) => {
   return `${imageBaseUrl}${imageName}`;
-}
+};
 
 export const headers: HeadersFunction = ({ loaderHeaders, parentHeaders }) => {
   return {
     "X-Header-Creation": `${new Date()}`,
-    'X-Hello': 'From the other side',
+    "X-Hello": "From the other side",
     // max-age: 12 hours, stale-while-revalidate: 1 year
     "Cache-Control": "max-age=43200",
   };
-}
+};
 
 export const loader: LoaderFunction = async () => {
-  let sellers: Seller[] = []
+  let sellers: Seller[] = [];
+  let isError: boolean = false;
 
   try {
-    sellers = await getSellers()
+    sellers = await getSellers();
   } catch (error) {
-    console.log(error)
+    isError = true;
+    console.log(error);
   }
 
-  return json(sellers)
-}
-
+  return json(sellers.length > 0 ? sellers : defaultSellers);
+};
 
 export const links = () => {
   return [{ rel: "stylesheet", href: globalStyles }];
 };
 
 export default function Index() {
-  const sellers = useLoaderData<Seller[]>()
+  let sellers = useLoaderData<Seller[]>();
 
   return (
     <>
@@ -51,21 +53,32 @@ export default function Index() {
 const Hero = () => {
   return (
     <>
-      <section className="header-image" style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url(${generateImagePath('hero.jpg')})`,
-      }}>
+      <section
+        className="header-image"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url(${generateImagePath(
+            "hero.jpg"
+          )})`,
+        }}
+      >
         <div className="container logo">
-          <img src={generateImagePath('kaegi-logo.png')} className="logo-img" alt="Kägi Bräu" />
+          <img
+            src={generateImagePath("kaegi-logo.png")}
+            className="logo-img"
+            alt="Kägi Bräu"
+          />
           <h3 className="header-subheading">Kägi Bräu</h3>
         </div>
         <div className="container container-center">
           <h1>Genussbiere aus der Region</h1>
-          <a href="#sellers" className="btn">Ich habe durst!</a>
+          <a href="#sellers" className="btn">
+            Ich habe durst!
+          </a>
         </div>
       </section>
     </>
   );
-}
+};
 
 export const Products = () => {
   return (
@@ -77,7 +90,7 @@ export const Products = () => {
             <img
               // loading="lazy"
               alt=""
-              src={generateImagePath('bier-fabrik.jpg')}
+              src={generateImagePath("bier-fabrik.jpg")}
               className="product-image"
             />
           </div>
@@ -97,7 +110,7 @@ export const Products = () => {
             <img
               // loading="lazy"
               alt=""
-              src={generateImagePath('bier-fest.jpg')}
+              src={generateImagePath("bier-fest.jpg")}
               className="product-image"
             />
           </div>
@@ -116,7 +129,7 @@ export const Products = () => {
             <img
               loading="lazy"
               alt=""
-              src={generateImagePath('bier-weizen.jpg')}
+              src={generateImagePath("bier-weizen.jpg")}
               className="product-image"
             />
           </div>
@@ -133,7 +146,7 @@ export const Products = () => {
             <img
               loading="lazy"
               alt=""
-              src={generateImagePath('bier-himbeer.jpg')}
+              src={generateImagePath("bier-himbeer.jpg")}
               className="product-image"
             />
           </div>
@@ -153,7 +166,7 @@ export const Products = () => {
             <img
               loading="lazy"
               alt=""
-              src={generateImagePath('bier-roggen.jpg')}
+              src={generateImagePath("bier-roggen.jpg")}
               className="product-image"
             />
           </div>
@@ -175,7 +188,7 @@ export const Products = () => {
             <img
               loading="lazy"
               alt=""
-              src={generateImagePath('bier-gewuerz.jpg')}
+              src={generateImagePath("bier-gewuerz.jpg")}
               className="product-image"
             />
           </div>
@@ -195,7 +208,7 @@ export const Products = () => {
             <img
               loading="lazy"
               alt=""
-              src={generateImagePath('bier-rauch.jpg')}
+              src={generateImagePath("bier-rauch.jpg")}
               className="product-image"
             />
           </div>
@@ -214,7 +227,6 @@ export const Products = () => {
   );
 };
 
-
 const BrewSeminar = () => {
   return (
     <section id="#brau-seminar">
@@ -224,7 +236,7 @@ const BrewSeminar = () => {
           <img
             loading="lazy"
             alt=""
-            src={generateImagePath('brau-kurs.jpg')}
+            src={generateImagePath("brau-kurs.jpg")}
             className="seminar-image"
           />
         </div>
@@ -247,34 +259,34 @@ const BrewSeminar = () => {
       </div>
     </section>
   );
-}
+};
 
 const SellerItem = ({ seller }: { seller: Seller }) => {
   return (
     <div className="seller-item">
       <h3 className="seller-heading">{seller.name}</h3>
-      <div className="seller-address" style={{ whiteSpace: 'pre-line' }}>
-        <p>
-          {seller.description}
-        </p>
+      <div className="seller-address" style={{ whiteSpace: "pre-line" }}>
+        <p>{seller.description}</p>
       </div>
     </div>
-  )
-
-}
+  );
+};
 
 const Sellers = ({ sellers }: { sellers: Seller[] }) => {
+  
+
   return (
     <section id="sellers">
       <h2 className="section-heading">Verkaufsstellen</h2>
 
       <div className="columns container sellers">
-        {sellers?.map(item => <SellerItem key={item.id} seller={item} />)}
+        {sellers?.map((item) => (
+          <SellerItem key={item.id} seller={item} />
+        ))}
       </div>
     </section>
   );
-}
-
+};
 
 const Team = () => {
   return (
@@ -335,6 +347,4 @@ const Team = () => {
       </div>
     </section>
   );
-}
-
-
+};
