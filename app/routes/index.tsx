@@ -71,9 +71,9 @@ const Hero = () => {
         </div>
         <div className="container container-center">
           <h1>Genussbiere aus der Region</h1>
-          <a href="#sellers" className="btn">
+          {/* <a href="#sellers" className="btn">
             Ich habe durst!
-          </a>
+          </a> */}
         </div>
       </section>
     </>
